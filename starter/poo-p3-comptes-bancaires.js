@@ -17,3 +17,21 @@ Stockez ces comptes dans un tableau.
 Ensuite, le programme crédite 1000 €
 et affiche la description de chacun des comptes.
 */
+class CompteBancaire{
+    constructor(nom) {
+        this.nom = nom;
+        this.solde = 0;
+    }
+    crediter(montant){
+        this.solde += montant;
+    }
+    decrire(){
+        return `Le compte du titulaire ${this.nom} a un solde de ${this.solde}€`;
+    }
+}
+const banque = [new CompteBancaire('Alex'), new CompteBancaire('Clovis'), new CompteBancaire('Marco')];
+
+//Ajout 1000€ pour chaque solde
+banque.forEach(montant => montant.solde += 1000);
+//Affiche la description de chaque compte bancaire
+banque.forEach(titulaire => console.log(titulaire.decrire()));
